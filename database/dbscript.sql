@@ -28,3 +28,9 @@ alter table tasks
   add constraint fk_tasks_status
   foreign key (statusid)
   references status (id);
+
+/*Insert*/
+Insert into status (name) values ('Nuevo');
+Insert into status (name) values ('En Progreso');
+Insert into status (name) values ('Finalizado');
+Insert into status (name) values ('Verificado');
