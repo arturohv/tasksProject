@@ -11,4 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'UserController@index');
+
+Route::resource('users', 'UserController');
+Route::post('users/{id}/update', 'users@update');
+Route::get('users/{id}/delete', 'users@destroy');
+Route::post('register', 'UserController@store');
+Route::post('login', 'UserController@login');
+
+Route::resource('tasks', 'TaskController');
+Route::post('tasks/{id}/update', 'tasks@update');
+Route::get('tasks/{id}/delete', 'tasks@destroy');
+
