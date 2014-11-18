@@ -5,6 +5,7 @@
 	{{HTML::script('js/jquery-2.1.1.min.js')}}
   {{HTML::script('js/jquery-ui.min.js')}}
 	{{HTML::style('bootstrap/css/bootstrap.min.css')}}
+  {{HTML::style('bootstrap/css/jquery-ui.min.css')}}
   <style type="text/css">
     body {
   padding-top: 50px;

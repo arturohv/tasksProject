@@ -9,14 +9,15 @@ class TaskController extends \BaseController {
 	 */
 	public function index()
 	{
-		//$aviones = Avion::all();
+		if (Request::ajax())		
+		{			
+    		$tareas = Task::GetUserTasks(1);
+    		return Response::Json($tareas);
+		}
 		$this->layout->title = 'Dashboard';
 		$this->layout->nest(
 			'content',
-			'dashboard.index',
-			array(
-				//'aviones' => $aviones
-			)
+			'dashboard.index'
 		);
 	}
 
@@ -79,9 +80,16 @@ class TaskController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
-		//
+		$id = Input::get('key');
+		$status = Input::get('newstatus');
+		
+		$tarea = Task::find($id);
+		$tarea->statusid = $status;		
+		$tarea->save();
+		//return Redirect::to('aviones');
+		return Response::Json($id);
 	}
 
 
