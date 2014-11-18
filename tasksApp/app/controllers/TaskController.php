@@ -39,7 +39,13 @@ class TaskController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$valor = Input::get('key');			
+		$tarea = new Task();
+		$tarea->userid = 1;
+		$tarea->statusid = 1;
+		$tarea->description = $valor;
+		$tarea->save();
+		return Response::Json($valor);	
 	}
 
 

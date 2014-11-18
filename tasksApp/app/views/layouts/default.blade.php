@@ -3,6 +3,7 @@
 <head>
 	<title>{{$title}}</title>
 	{{HTML::script('js/jquery-2.1.1.min.js')}}
+  {{HTML::script('js/jquery-ui.min.js')}}
 	{{HTML::style('bootstrap/css/bootstrap.min.css')}}
   <style type="text/css">
     body {
