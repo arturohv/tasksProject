@@ -19,12 +19,21 @@ $(document).ready(function() {
 			$("#sortable4 li").remove();
 			for (var i = 0; i < json.length; i++) {
 				if (json[i].statusid == 1) {
-					$('#sortable1').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
+					$('#sortable1').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a> ' + json[i].description + '</li>');
+					
 				};
 
 				if (json[i].statusid == 2) {
 					$('#sortable2').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
-				};					
+				};
+
+				if (json[i].statusid == 3) {
+					$('#sortable3').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
+				};
+
+				if (json[i].statusid == 4) {
+					$('#sortable4').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
+				};											
 				
 				
 			};
@@ -52,7 +61,7 @@ $(document).ready(function() {
 			connectWith: "ul",
 			dropOnEmpty: false
 		});
-		$( "#sortable1, #sortable2, #sortable3" ).disableSelection();
+		$( "#sortable1, #sortable2, #sortable3, #sortable4" ).disableSelection();
 	});
 
 	/*Obtiene el id del elemento arrastrado hacia la casilla 1*/ 
@@ -63,7 +72,7 @@ $(document).ready(function() {
 	        var liId = ui.item.parent('ul').children('li').attr('id');
 	        //Get the sending ul id
 	        //var sendingID = ui.sender.attr('id');
-	        alert(liId);
+	        //alert(liId);
       		setTaskStatusChange(liId,1);	
 		}
 	}).disableSelection(); 
@@ -78,6 +87,33 @@ $(document).ready(function() {
 	        //var sendingID = ui.sender.attr('id');
 	        //alert(liId);
       		setTaskStatusChange(liId,2);	
+		}
+	}).disableSelection();
+
+	/*Obtiene el id del elemento arrastrado hacia la casilla 3*/ 
+	$('#sortable3').sortable({
+		receive: function(event, ui){
+	        //Get the receiving ul id
+	        //var receivingID = ui.item.parent('ul').attr('id');
+	        var liId = ui.item.parent('ul').children('li').attr('id');
+	        //Get the sending ul id
+	        //var sendingID = ui.sender.attr('id');
+	        //alert(liId);
+      		setTaskStatusChange(liId,3);	
+		}
+	}).disableSelection();
+
+	/*Obtiene el id del elemento arrastrado hacia la casilla 4*/ 
+	$('#sortable4').sortable({
+		receive: function(event, ui){
+	        //Get the receiving ul id
+	        //var receivingID = ui.item.parent('ul').attr('id');
+	        var liId = ui.item.parent('ul').children('li').attr('id');
+	        //Get the sending ul id
+	        //var sendingID = ui.sender.attr('id');
+	        //alert(liId);
+	        
+      		setTaskStatusChange(liId,4);	
 		}
 	}).disableSelection();
 

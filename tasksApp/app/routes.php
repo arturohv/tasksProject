@@ -20,9 +20,9 @@ Route::post('register', 'UserController@store');
 Route::post('login', 'UserController@login');
 
 Route::resource('tasks', 'TaskController');
-//Route::post('tasks/{id}/update', 'tasks@update');
+Route::post('tasks/{id}/update', 'TaskController@update');
 //Route::get('tasks/{id}/delete', 'tasks@destroy');
 Route::post('settasks', 'TaskController@store');
 Route::get('gettasks', 'TaskController@index');
-Route::post('settaskschangestatus','TaskController@update');
+Route::post('settaskschangestatus','TaskController@updateStatus');
 

@@ -70,9 +70,16 @@ class TaskController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$this->layout->title = 'Editar Tarea';
+		$tarea = Task::find($id);
+		$this->layout->nest(
+			'content',
+			'dashboard.edit',
+			array(
+				'tarea' => $tarea
+			)
+		);
 	}
-
 
 	/**
 	 * Update the specified resource in storage.
@@ -80,7 +87,23 @@ class TaskController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update()
+	public function update($id)
+	{
+		$descripcion = Input::get('tarea');
+				
+		$tarea = Task::find($id);
+		$tarea->description = $descripcion;		
+		$tarea->save();
+		return Redirect::to('gettasks');
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function updateStatus()
 	{
 		$id = Input::get('key');
 		$status = Input::get('newstatus');

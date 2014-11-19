@@ -1,6 +1,6 @@
 
  <style>
-#sortable1, #sortable2, #sortable3 
+#sortable1, #sortable2, #sortable3, #sortable4 
 {  background: #eee; width: auto; padding: 10px}
 
 </style>
@@ -26,7 +26,7 @@
       <div class="panel panel-default">
         <div class="panel-heading text-center"><strong>En proceso</strong></div>
         <div class="panel-body">
-          	<ul id="sortable2" class="dropfalse list-group">							
+          	<ul id="sortable2" class="droptrue list-group">							
 
 			</ul>
         </div>
@@ -36,7 +36,9 @@
       <div class="panel panel-default">
         <div class="panel-heading text-center"><strong>Terminadas</strong></div>
         <div class="panel-body">
-         
+         	<ul id="sortable3" class="droptrue list-group">							
+
+			</ul>
         </div>
       </div>
     </div>
@@ -44,7 +46,9 @@
       <div class="panel panel-default">
         <div class="panel-heading text-center"><strong>Verificadas</strong></div>
         <div class="panel-body">
-         
+         	<ul id="sortable4" class="droptrue list-group">							
+
+			</ul>
         </div>
       </div>
     </div>
