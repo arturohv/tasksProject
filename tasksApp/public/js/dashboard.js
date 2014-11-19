@@ -3,8 +3,11 @@ $(document).ready(function() {
 	/*Llama al evento del boton agregar*/
 	$('#btnAgregar').click(function(event) {
 		var retVal = prompt("Ingrese su nueva tarea : ", "Tarea nueva");
-   		setTask(retVal);
-   		getTask();
+		if (retVal) {
+			setTask(retVal);
+   			getTask();
+		};
+   		
 	});
 
 	getTask();
@@ -19,20 +22,20 @@ $(document).ready(function() {
 			$("#sortable4 li").remove();
 			for (var i = 0; i < json.length; i++) {
 				if (json[i].statusid == 1) {
-					$('#sortable1').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a>|<a href="tasks/' + json[i].id + '/delete">Delete</a> ' + json[i].description + '</li>');
+					$('#sortable1').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a>|<a href="tasks/' + json[i].id + '/confirm">Delete</a> ' + json[i].description + '</li>');
 					
 				};
 
 				if (json[i].statusid == 2) {
-					$('#sortable2').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
+					$('#sortable2').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a>|<a href="tasks/' + json[i].id + '/confirm">Delete</a> ' + json[i].description + '</li>');
 				};
 
 				if (json[i].statusid == 3) {
-					$('#sortable3').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
+					$('#sortable3').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a>|<a href="tasks/' + json[i].id + '/confirm">Delete</a> ' + json[i].description + '</li>');
 				};
 
 				if (json[i].statusid == 4) {
-					$('#sortable4').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item">' + json[i].description + '</li>');
+					$('#sortable4').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a>|<a href="tasks/' + json[i].id + '/confirm">Delete</a> ' + json[i].description + '</li>');
 				};											
 				
 				

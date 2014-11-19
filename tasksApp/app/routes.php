@@ -21,7 +21,8 @@ Route::post('login', 'UserController@login');
 
 Route::resource('tasks', 'TaskController');
 Route::post('tasks/{id}/update', 'TaskController@update');
-//Route::get('tasks/{id}/delete', 'tasks@destroy');
+Route::get('tasks/{id}/confirm', 'TaskController@confirmDelete');
+Route::post('tasks/{id}/delete', 'TaskController@destroy');
 Route::post('settasks', 'TaskController@store');
 Route::get('gettasks', 'TaskController@index');
 Route::post('settaskschangestatus','TaskController@updateStatus');

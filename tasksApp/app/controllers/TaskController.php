@@ -81,6 +81,7 @@ class TaskController extends \BaseController {
 		);
 	}
 
+
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -115,6 +116,19 @@ class TaskController extends \BaseController {
 		return Response::Json($id);
 	}
 
+	public function confirmDelete($id)
+	{
+		$this->layout->title = 'Eliminar Tarea';
+		$tarea = Task::find($id);
+		$this->layout->nest(
+			'content',
+			'dashboard.delete',
+			array(
+				'tarea' => $tarea
+			)
+		);
+		
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -124,7 +138,9 @@ class TaskController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$tarea = Task::find($id);
+		$tarea->delete();
+		return Redirect::to('gettasks');
 	}
 
 

@@ -5,13 +5,13 @@
 
 </style>
 <div class="container">
-  <div class="jumbotron">
+  <div >
     <h1 class="text-center">Dashboard</h1>
   </div>
-  <div class="row">
+  <div class="row">  	
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading text-center"><strong>Nuevas</strong></div>
+        <div class="panel-heading text-center"><strong>Tareas Nuevas</strong></div>
         <div class="panel-body">
          	<ul id="sortable1" class="droptrue list-group">
 				
@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading text-center"><strong>En proceso</strong></div>
+        <div class="panel-heading text-center"><strong>Tareas En proceso</strong></div>
         <div class="panel-body">
           	<ul id="sortable2" class="droptrue list-group">							
 
@@ -34,7 +34,7 @@
     </div>
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading text-center"><strong>Terminadas</strong></div>
+        <div class="panel-heading text-center"><strong>Tareas Terminadas</strong></div>
         <div class="panel-body">
          	<ul id="sortable3" class="droptrue list-group">							
 
@@ -44,7 +44,7 @@
     </div>
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading text-center"><strong>Verificadas</strong></div>
+        <div class="panel-heading text-center"><strong>Tareas Verificadas</strong></div>
         <div class="panel-body">
          	<ul id="sortable4" class="droptrue list-group">							
 
