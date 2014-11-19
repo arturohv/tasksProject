@@ -19,7 +19,7 @@ $(document).ready(function() {
 			$("#sortable4 li").remove();
 			for (var i = 0; i < json.length; i++) {
 				if (json[i].statusid == 1) {
-					$('#sortable1').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a> ' + json[i].description + '</li>');
+					$('#sortable1').append('<li id = ' + json[i].id + ' class="ui-state-default list-group-item"> <a href="tasks/' + json[i].id + '/edit">Editar</a>|<a href="tasks/' + json[i].id + '/delete">Delete</a> ' + json[i].description + '</li>');
 					
 				};
 

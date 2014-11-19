@@ -11,7 +11,7 @@ class TaskController extends \BaseController {
 	{
 		if (Request::ajax())		
 		{			
-    		$tareas = Task::GetUserTasks(1);
+    		$tareas = Task::GetUserTasks(Auth::id());
     		return Response::Json($tareas);
 		}
 		$this->layout->title = 'Dashboard';
@@ -42,7 +42,7 @@ class TaskController extends \BaseController {
 	{
 		$valor = Input::get('key');			
 		$tarea = new Task();
-		$tarea->userid = 1;
+		$tarea->userid = Auth::id();
 		$tarea->statusid = 1;
 		$tarea->description = $valor;
 		$tarea->save();
