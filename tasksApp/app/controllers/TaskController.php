@@ -97,7 +97,13 @@ class TaskController extends \BaseController {
 			$tarea->save();
 			return Redirect::to('gettasks');
 		}
-		dd('Tarea de usuario incorrecta');
+		$this->layout->title = 'Mensaje de Error';
+		$this->layout->nest(
+			'content',
+			'dashboard.error'
+		);
+
+		//return Redirect::to('/error');
 	}
 
 	/**

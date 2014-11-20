@@ -27,3 +27,8 @@ Route::post('settasks', 'TaskController@store');
 Route::get('gettasks', 'TaskController@index');
 Route::post('settaskschangestatus','TaskController@updateStatus');
 
+Route::get('error', function()
+{
+	return View::make('dashboard.error');
+});
+
