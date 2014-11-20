@@ -90,12 +90,14 @@ class TaskController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$descripcion = Input::get('tarea');
-				
+		$descripcion = Input::get('tarea');				
 		$tarea = Task::find($id);
-		$tarea->description = $descripcion;		
-		$tarea->save();
-		return Redirect::to('gettasks');
+		if ($tarea->userid == Auth::id()) {
+			$tarea->description = $descripcion;		
+			$tarea->save();
+			return Redirect::to('gettasks');
+		}
+		dd('Tarea de usuario incorrecta');
 	}
 
 	/**
@@ -107,13 +109,13 @@ class TaskController extends \BaseController {
 	public function updateStatus()
 	{
 		$id = Input::get('key');
-		$status = Input::get('newstatus');
-		
+		$status = Input::get('newstatus');		
 		$tarea = Task::find($id);
 		$tarea->statusid = $status;		
 		$tarea->save();
 		//return Redirect::to('aviones');
 		return Response::Json($id);
+
 	}
 
 	public function confirmDelete($id)
@@ -126,8 +128,7 @@ class TaskController extends \BaseController {
 			array(
 				'tarea' => $tarea
 			)
-		);
-		
+		);		
 	}
 
 	/**
@@ -139,8 +140,12 @@ class TaskController extends \BaseController {
 	public function destroy($id)
 	{
 		$tarea = Task::find($id);
-		$tarea->delete();
-		return Redirect::to('gettasks');
+		if ($tarea->userid == Auth::id()) {
+			$tarea->delete();
+			return Redirect::to('gettasks');
+		}
+		dd('Tarea de usuario incorrecta');
+		
 	}
 
 
