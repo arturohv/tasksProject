@@ -6,7 +6,7 @@
 </style>
 <div class="container">
   <div >
-    <h1 class="text-center">Dashboard</h1>
+    <h1 class="text-center">Dashboard: {{ Auth::user()->email }}</h1>
   </div>
   <div class="row">  	
     <div class="col-md-3">
