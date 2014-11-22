@@ -23,7 +23,7 @@
 
 							<div class="form-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								{{Form::text('email', Input::old('email'), array('placeholder' => 'Email', 'required' => 'true'))}}                                 
+								{{Form::email('email', Input::old('email'), array('placeholder' => 'Email', 'class' => 'form-control', 'required' => 'true'))}}                                 
 							</div>
 
 
